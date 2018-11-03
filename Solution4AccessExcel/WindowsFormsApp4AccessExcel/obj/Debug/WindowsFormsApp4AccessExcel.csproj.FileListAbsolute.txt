@@ -1,0 +1,16 @@
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\bin\Debug\WindowsFormsApp4AccessExcel.exe.config
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\bin\Debug\WindowsFormsApp4AccessExcel.exe
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\bin\Debug\WindowsFormsApp4AccessExcel.pdb
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\bin\Debug\NPOI.dll
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\bin\Debug\NPOI.OOXML.dll
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\bin\Debug\NPOI.OpenXmlFormats.dll
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\obj\Debug\WindowsFormsApp4AccessExcel.csprojAssemblyReference.cache
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\obj\Debug\WindowsFormsApp4AccessExcel.Form1.resources
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\obj\Debug\WindowsFormsApp4AccessExcel.Properties.Resources.resources
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\obj\Debug\WindowsFormsApp4AccessExcel.csproj.GenerateResource.cache
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\obj\Debug\WindowsFormsApp4AccessExcel.csproj.CoreCompileInputs.cache
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\obj\Debug\WindowsFormsApp4AccessExcel.csproj.CopyComplete
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\obj\Debug\WindowsFormsApp4AccessExcel.exe
+C:\Users\udoughong\source\repos\Solution4AccessExcel\WindowsFormsApp4AccessExcel\obj\Debug\WindowsFormsApp4AccessExcel.pdb
