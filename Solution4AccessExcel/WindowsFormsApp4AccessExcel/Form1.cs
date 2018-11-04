@@ -66,10 +66,10 @@ namespace WindowsFormsApp4AccessExcel
             switch (excelVer)
             {
                 case ("2003"):
-                    file = new FileStream(@"c:\tmp\npoi.xls", FileMode.Create);//產生Excel 2003檔案
+                    file = new FileStream(@"C:\Users\udoug\OneDrive\文件\MyCase\興利網CASE\tmp\npoi.xls", FileMode.Create);//產生Excel 2003檔案
                     break;
                 case ("2007"):
-                    file = new FileStream(@"c:\tmp\npoi.xlsx", FileMode.Create);//產生Excel 2007檔案
+                    file = new FileStream(@"C:\Users\udoug\OneDrive\文件\MyCase\興利網CASE\tmp\npoi.xlsx", FileMode.Create);//產生Excel 2007檔案
                     break;
                 default:
                     break;
@@ -231,9 +231,81 @@ namespace WindowsFormsApp4AccessExcel
 
         private void BtnInport_Click(object sender, EventArgs e)
         {
-            string thisNewFileName = "";
-            GetFileName(out thisNewFileName);
-            DataTable thisNewDataTable = GetDataTableFromExcelFile(thisNewFileName);
+            string thisInportFileName = "";
+            GetFileName(out thisInportFileName);
+            DataTable thisInportDataTable = GetDataTableFromExcelFile(thisInportFileName);
+            DgwResult.DataSource = thisInportDataTable;
+        }
+
+        //範例四，修改Excel(不新增欄位)
+        private void UpdateExcelDataWithoutNewCell(string fileName)
+        {
+            HSSFWorkbook hssfwb;
+            using (FileStream file = new FileStream(fileName, FileMode.Open, FileAccess.Read))
+            {
+                hssfwb = new HSSFWorkbook(file);
+                file.Close();
+            }
+
+            ISheet sheet = hssfwb.GetSheetAt(0); //抓第1個Sheet工作表.GetSheetAt(0)
+            // sheet.SheetName.ToString(); //得到工作表名稱
+            //抓合拼欄位的話，只要抓合拼後的最前一個row就好，其他row無法設定值進去
+            //例如row5跟row6合拼，只要抓row5就好，row6是無法設值進去
+            IRow row = sheet.GetRow(2);   // GetRow(0)抓第1個row
+
+            ICell cell = row.GetCell(1);// //GetCell(0) 抓第一個Cell
+            cell.SetCellValue("test12121213221"); //設定值
+
+            using (FileStream file = new FileStream(fileName, FileMode.Open, FileAccess.Write))
+            {
+                hssfwb.Write(file);
+                file.Close();
+            }
+        }
+
+        private void BtnUpdateExcelWithoutNewCell_Click(object sender, EventArgs e)
+        {
+            GetFileName(out string thisUpdateFileName);
+            UpdateExcelDataWithoutNewCell(thisUpdateFileName);
+            DataTable thisNewDataTable = GetDataTableFromExcelFile(thisUpdateFileName);
+            DgwResult.DataSource = thisNewDataTable;
+        }
+
+        //範例五，修改Excel(新增欄位)
+        private void UpdateExcelDataWithNewCell(string fileName)
+        {
+            #region 把Excel文件載入workbook變數裡，之後關閉Excel文件。
+            HSSFWorkbook wk = null;
+            using (FileStream fs = File.Open(fileName, FileMode.Open,
+            FileAccess.Read, FileShare.ReadWrite))
+            {
+                wk = new HSSFWorkbook(fs);
+                fs.Close();
+            }
+            #endregion
+            #region 新增寫入欄位
+            //抓第1個Sheet工作表.GetSheetAt(0)
+            ISheet sheet = wk.GetSheetAt(0);
+            //因為要新增下一個欄位，所以擷取第一行，建立下一列。
+            ICell cell = sheet.GetRow(0).CreateCell(sheet.GetRow(0).Cells.Count);
+            ////在第一行，新建立的那一列，寫入欄位名稱。
+            cell.SetCellValue("欄位名稱" + sheet.GetRow(0).Cells.Count.ToString());
+            #endregion
+            #region 存檔
+            using (FileStream fileStream
+                = File.Open(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite))
+            {
+                wk.Write(fileStream);
+                fileStream.Close();
+            }
+            #endregion
+        }
+
+        private void BtnUpdateExcelWithNewCell_Click(object sender, EventArgs e)
+        {
+            GetFileName(out string thisUpdateFileName);
+            UpdateExcelDataWithNewCell(thisUpdateFileName);
+            DataTable thisNewDataTable = GetDataTableFromExcelFile(thisUpdateFileName);
             DgwResult.DataSource = thisNewDataTable;
         }
     }
