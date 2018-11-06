@@ -245,9 +245,9 @@ namespace WindowsFormsApp4AccessExcel
             // sheet.SheetName.ToString(); //得到工作表名稱
             //抓合拼欄位的話，只要抓合拼後的最前一個row就好，其他row無法設定值進去
             //例如row5跟row6合拼，只要抓row5就好，row6是無法設值進去
-            IRow row = sheet.GetRow(2);   // GetRow(0)抓第1個row
+            IRow row = sheet.GetRow(2);//GetRow(2)抓第3個Row
 
-            ICell cell = row.GetCell(1);// //GetCell(0) 抓第一個Cell
+            ICell cell = row.GetCell(1);//GetCell(1)抓第2個Cell
             cell.SetCellValue("test12121213221"); //設定值
 
             using (FileStream file = new FileStream(fileName, FileMode.Open, FileAccess.Write))
